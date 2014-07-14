@@ -1,25 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
-using TowerDefense.DataStructures;
 
 namespace TowerDefense.Behaviours
 {
     public class Target : MonoBehaviour
     {
-        public static Target Instance;
-        public Vector2Int Position { get { return m_Position; } }
+        public static Target Instance { get { return s_Instance; } }
+        public Vector3 Position { get { return CachedTransform.position; } }
 
-        private Vector2Int m_Position;
+        private static Target s_Instance;
+        private Transform m_Transform;
+
+        private Transform CachedTransform
+        {
+            get
+            {
+                if (Object.ReferenceEquals(m_Transform, null))
+                {
+                    m_Transform = transform;
+                }
+
+                return transform;
+            }
+        }
 
         public Target()
         {
-            Instance = this;
-        }
-
-        void Start()
-        {
-            var worldPos = transform.position;
-            m_Position = new Vector2Int(worldPos.x, worldPos.z);
+            s_Instance = this;
         }
     }
 }
