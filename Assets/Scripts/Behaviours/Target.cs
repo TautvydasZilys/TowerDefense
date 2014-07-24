@@ -5,28 +5,33 @@ namespace TowerDefense.Behaviours
 {
     public class Target : MonoBehaviour
     {
+        #region Public inspector fields
+
+        public int kLives;
+
+        #endregion
+
         public static Target Instance { get { return s_Instance; } }
-        public Vector3 Position { get { return CachedTransform.position; } }
+        public Vector3 Position { get { return m_Transform.position; } }
 
         private static Target s_Instance;
         private Transform m_Transform;
-
-        private Transform CachedTransform
-        {
-            get
-            {
-                if (Object.ReferenceEquals(m_Transform, null))
-                {
-                    m_Transform = transform;
-                }
-
-                return transform;
-            }
-        }
-
+        private int m_LivesRemaining;
+        
         public Target()
         {
             s_Instance = this;
+        }
+
+        private void Awake()
+        {
+            m_Transform = transform;
+            m_LivesRemaining = kLives;
+        }
+
+        public void DecrementLives()
+        {
+            m_LivesRemaining--;
         }
     }
 }
