@@ -57,7 +57,7 @@ namespace TowerDefense.Controllers
             m_ActionList = new List<Action>();
         }
 
-        public void Loop()
+        private void Loop()
         {
             for (int i = 0; i < m_ActionList.Count; i++)
             {

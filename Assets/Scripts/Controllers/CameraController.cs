@@ -17,7 +17,7 @@ namespace TowerDefense.Controllers
 
         private Rigidbody m_Rigidbody;
 
-        public void Initiaze(Rigidbody cameraRigidbody)
+        public void Initialize(Rigidbody cameraRigidbody)
         {
             m_Rigidbody = cameraRigidbody;
             GameLoopController.AddEvent(GameLoopController.LoopControllers.Update, Update);

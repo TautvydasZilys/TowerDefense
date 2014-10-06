@@ -55,5 +55,10 @@ namespace TowerDefense.Controllers
         {
             m_CurrentLevel++;
         }
+
+        public void ResetLevel()
+        {
+            m_CurrentLevel = 1;
+        }
     }
 }

@@ -278,7 +278,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8860acdb84f85ed448b38c92f9ebea26, type: 2}
       propertyPath: kLives
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8860acdb84f85ed448b38c92f9ebea26, type: 2}
@@ -321,7 +321,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 921262945}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d0130c56dadcc4dbd9b93f5f90c23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kLives: 30
+  kLives: 3
 --- !u!1001 &1324306982
 Prefab:
   m_ObjectHideFlags: 0

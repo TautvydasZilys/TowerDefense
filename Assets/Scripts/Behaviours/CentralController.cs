@@ -24,7 +24,7 @@ namespace TowerDefense.Behaviours
 
         private void Start()
         {
-            CameraController.Initiaze(rigidbody);
+            CameraController.Initialize(rigidbody);
             VariablesController.Initialize();
 
             GameplayController.Start();

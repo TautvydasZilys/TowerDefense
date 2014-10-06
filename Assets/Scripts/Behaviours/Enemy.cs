@@ -45,7 +45,7 @@ namespace TowerDefense.Behaviours
             return false;
         }
 
-        private void Explode()
+        public void Explode()
         {
             Destroy(gameObject);
         }
