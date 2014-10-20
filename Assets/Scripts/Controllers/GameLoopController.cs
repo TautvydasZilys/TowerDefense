@@ -37,9 +37,10 @@ namespace TowerDefense.Controllers
             return actionList.Count - 1;
         }
 
-        public static void RemoveEvent(LoopControllers controller, int actionHandle)
+        public static void RemoveEvent(LoopControllers controller, ref int actionHandle)
         {
             s_Controllers[(int)controller].m_ActionList[actionHandle] = null;
+            actionHandle = -1;
         }
 
         public static void Update()

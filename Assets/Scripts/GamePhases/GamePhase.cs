@@ -22,7 +22,7 @@ namespace TowerDefense.GamePhases
 
         public abstract IEnumerator DoPhase();
 
-        protected void FinishPhase()
+        protected virtual void FinishPhase()
         {
             CentralController.BeginCoroutine(m_NextPhase.DoPhase());
         }

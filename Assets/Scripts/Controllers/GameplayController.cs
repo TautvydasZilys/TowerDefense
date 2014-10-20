@@ -39,6 +39,7 @@ namespace TowerDefense.Controllers
         {
             m_Phases = new GamePhase[]
             {
+                new BuildTowersPhase(),
                 new WaveStartingMessagePhase(),
                 new EnemyWaveGamePhase()
             };

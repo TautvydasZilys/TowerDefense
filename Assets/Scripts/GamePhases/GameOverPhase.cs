@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace TowerDefense.GamePhases
 {
-    class GameOverPhase : GamePhase
+    internal class GameOverPhase : GamePhase
     {
         private GUIStyle m_GUIStyle;
         private string m_Message;
@@ -57,8 +57,8 @@ namespace TowerDefense.GamePhases
 
         private void Finish()
         {
-            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.Update, m_UpdateEventHandle);
-            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, m_OnGUIEventHandle);
+            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.Update, ref m_UpdateEventHandle);
+            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, ref m_OnGUIEventHandle);
 
             m_GameplayController.ResetLevel();
             Target.Instance.ResetLives();

@@ -29,8 +29,8 @@ namespace TowerDefense.GamePhases
             m_Message = string.Format("Level {0} is about to start", m_GameplayController.CurrentLevel);
 
             var eventHandle = GameLoopController.AddEvent(GameLoopController.LoopControllers.OnGUI, DrawLabel);
-            yield return new WaitForSeconds(5.0f);
-            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, eventHandle);
+            yield return new WaitForSeconds(3.0f);
+            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, ref eventHandle);
 
             FinishPhase();
         }

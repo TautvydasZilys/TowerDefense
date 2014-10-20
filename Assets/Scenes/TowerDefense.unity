@@ -278,7 +278,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8860acdb84f85ed448b38c92f9ebea26, type: 2}
       propertyPath: kLives
-      value: 3
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8860acdb84f85ed448b38c92f9ebea26, type: 2}
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d0130c56dadcc4dbd9b93f5f90c23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kLives: 3
+  kLives: 30
 --- !u!1001 &1324306982
 Prefab:
   m_ObjectHideFlags: 0
