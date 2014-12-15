@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TowerDefense.Behaviours;
 using TowerDefense.Controllers;
 using UnityEngine;
 
 namespace TowerDefense.GamePhases
 {
-    internal class EnemyWaveGamePhase : GamePhase
+    internal sealed class EnemyWaveGamePhase : GamePhase
     {
         private GameplayController.LevelInfo m_LevelInfo;
         private List<Enemy> m_Enemies = new List<Enemy>();

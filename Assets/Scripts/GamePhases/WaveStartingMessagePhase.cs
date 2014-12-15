@@ -1,44 +1,26 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 using TowerDefense.Controllers;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TowerDefense.GamePhases
 {
-    internal class WaveStartingMessagePhase : GamePhase
+    internal sealed class WaveStartingMessagePhase : GamePhase
     {
-        private GUIStyle m_GUIStyle;
-        private string m_Message;
-
-        public WaveStartingMessagePhase()
-        {
-            m_GUIStyle = new GUIStyle()
-            {
-                alignment = TextAnchor.MiddleCenter,
-                fontSize = 96
-            };
-
-            m_GUIStyle.normal.textColor = Color.white;
-        }
+        private Text m_WaveStartingText;
 
         public override IEnumerator DoPhase()
         {
-            m_Message = string.Format("Level {0} is about to start", m_GameplayController.CurrentLevel);
+            m_WaveStartingText = UIController.WaveStartingText;
+            m_WaveStartingText.text = string.Format("Level {0} is about to start", m_GameplayController.CurrentLevel);
+            m_WaveStartingText.gameObject.SetActive(true);
 
-            var eventHandle = GameLoopController.AddEvent(GameLoopController.LoopControllers.OnGUI, DrawLabel);
             yield return new WaitForSeconds(3.0f);
-            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, ref eventHandle);
+
+            m_WaveStartingText.gameObject.SetActive(false);
+            m_WaveStartingText = null;
 
             FinishPhase();
-        }
-
-        private void DrawLabel()
-        {
-            var screenRect = new Rect(0.0f, 0.0f, VariablesController.ScreenWidth, VariablesController.ScreenHeight);
-            GUI.Label(screenRect, m_Message, m_GUIStyle);
         }
     }
 }

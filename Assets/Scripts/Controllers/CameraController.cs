@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace TowerDefense.Controllers
 {
     [Serializable]
-    public class CameraController
+    public sealed class CameraController
     {
         public float kCameraMinimumHeight = 1.0f;
         public float kCameraMaximumHeight = 50.0f;

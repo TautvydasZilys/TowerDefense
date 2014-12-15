@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TowerDefense.Controllers
 {
-    internal class GameLoopController
+    internal sealed class GameLoopController
     {
         private List<Action> m_ActionList;
         private static GameLoopController[] s_Controllers;
@@ -48,11 +46,6 @@ namespace TowerDefense.Controllers
             s_Controllers[(int)LoopControllers.Update].Loop();
         }
 
-        public static void OnGUI()
-        {
-            s_Controllers[(int)LoopControllers.OnGUI].Loop();
-        }
-
         private GameLoopController()
         {
             m_ActionList = new List<Action>();
@@ -72,7 +65,6 @@ namespace TowerDefense.Controllers
         internal enum LoopControllers
         {
             Update = 0,
-            OnGUI,
             ControllerCount
         }
     }

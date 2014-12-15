@@ -1,14 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TowerDefense.Controllers;
 using UnityEngine;
 
 namespace TowerDefense.Behaviours
 {
-    public class CentralController : MonoBehaviour
+    public sealed class CentralController : MonoBehaviour
     {
         public CameraController CameraController;
         public GameplayController GameplayController;
+        public UIController UIController;
 
         private static CentralController s_Instance;
 
@@ -26,6 +26,7 @@ namespace TowerDefense.Behaviours
         {
             CameraController.Initialize(rigidbody);
             VariablesController.Initialize();
+            UIController.Initialize();
 
             GameplayController.Start();
         }
@@ -33,11 +34,6 @@ namespace TowerDefense.Behaviours
         private void Update()
         {
             GameLoopController.Update();
-        }
-
-        private void OnGUI()
-        {
-            GameLoopController.OnGUI();
         }
     }
 }

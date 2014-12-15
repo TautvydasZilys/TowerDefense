@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TowerDefense.Behaviours
 {
-    public class Enemy : MonoBehaviour
+    public sealed class Enemy : MonoBehaviour
     {
         private NavMeshAgent m_NavMeshAgent;
         private Transform m_Transform;

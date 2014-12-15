@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace TowerDefense.Behaviours
 {
-    public class Target : MonoBehaviour
+    public sealed class Target : MonoBehaviour
     {
         #region Public inspector fields
 

@@ -1,41 +1,25 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 using TowerDefense.Behaviours;
 using TowerDefense.Controllers;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TowerDefense.GamePhases
 {
-    internal class GameOverPhase : GamePhase
+    internal sealed class GameOverPhase : GamePhase
     {
-        private GUIStyle m_GUIStyle;
-        private string m_Message;
-
-        private int m_OnGUIEventHandle;
         private int m_UpdateEventHandle;
-
-        public GameOverPhase()
-        {
-            m_GUIStyle = new GUIStyle()
-            {
-                alignment = TextAnchor.MiddleCenter,
-                fontSize = 96
-            };
-
-            m_GUIStyle.normal.textColor = Color.white;
-        }
+        private Text m_GameOverText;
 
         public override IEnumerator DoPhase()
         {
             var currentLevel = m_GameplayController.CurrentLevel;
 
-            m_Message = string.Format("Game over!\r\nYou have survived {0} level{1}.\r\nPress any key to play again",
+            m_GameOverText = UIController.GameOverText;
+            m_GameOverText.text = string.Format("Game over!\r\nYou have survived {0} level{1}.\r\nPress any key to play again",
                 currentLevel - 1, currentLevel == 1 ? "s" : "");
+            m_GameOverText.gameObject.SetActive(true);
 
-            m_OnGUIEventHandle = GameLoopController.AddEvent(GameLoopController.LoopControllers.OnGUI, DrawLabel);
             m_UpdateEventHandle = GameLoopController.AddEvent(GameLoopController.LoopControllers.Update, Update);
 
             yield break;
@@ -49,16 +33,12 @@ namespace TowerDefense.GamePhases
             }
         }
 
-        private void DrawLabel()
-        {
-            var screenRect = new Rect(0.0f, 0.0f, VariablesController.ScreenWidth, VariablesController.ScreenHeight);
-            GUI.Label(screenRect, m_Message, m_GUIStyle);
-        }
-
         private void Finish()
         {
             GameLoopController.RemoveEvent(GameLoopController.LoopControllers.Update, ref m_UpdateEventHandle);
-            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, ref m_OnGUIEventHandle);
+
+            m_GameOverText.gameObject.SetActive(false);
+            m_GameOverText = null;
 
             m_GameplayController.ResetLevel();
             Target.Instance.ResetLives();

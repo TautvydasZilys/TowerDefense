@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TowerDefense.Behaviours;
 using TowerDefense.GamePhases;
 using UnityEngine;
@@ -9,7 +6,7 @@ using UnityEngine;
 namespace TowerDefense.Controllers
 {
     [Serializable]
-    public class GameplayController
+    public sealed class GameplayController
     {
         #region Helper data structures
 

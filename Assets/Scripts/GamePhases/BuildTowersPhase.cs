@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 using TowerDefense.Controllers;
-using UnityEngine;
+using UnityEngine.UI;
 
 namespace TowerDefense.GamePhases
 {
-    internal class BuildTowersPhase : GamePhase
+    internal sealed class BuildTowersPhase : GamePhase
     {
-        private int m_OnGuiEventHandle;
+        private Button m_StartGameButton;
 
         public override IEnumerator DoPhase()
         {
-            m_OnGuiEventHandle = GameLoopController.AddEvent(GameLoopController.LoopControllers.OnGUI, OnGUI);
+            m_StartGameButton = UIController.StartGameButton;
+            m_StartGameButton.onClick.AddListener(FinishPhase);
+            m_StartGameButton.gameObject.SetActive(true);
+
             yield break;
         }
 
         protected override void FinishPhase()
         {
-            GameLoopController.RemoveEvent(GameLoopController.LoopControllers.OnGUI, ref m_OnGuiEventHandle);
-            base.FinishPhase();
-        }
+            m_StartGameButton.gameObject.SetActive(false);
+            m_StartGameButton.onClick.RemoveListener(FinishPhase);
+            m_StartGameButton = null;
 
-        private void OnGUI()
-        {
-            if (GUI.Button(new Rect(20.0f, 20.0f, VariablesController.ScreenWidth - 20.0f, 40.0f), "Start game"))
-            {
-                FinishPhase();
-            }
+            base.FinishPhase();
         }
     }
 }
