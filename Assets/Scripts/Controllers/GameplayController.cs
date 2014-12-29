@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using TowerDefense.Behaviours;
 using TowerDefense.GamePhases;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace TowerDefense.Controllers
 
         private GamePhase[] m_Phases;
 
-        public void Start()
+        public IEnumerator Start()
         {
             m_Phases = new GamePhase[]
             {
@@ -46,6 +47,7 @@ namespace TowerDefense.Controllers
                 m_Phases[i].Initialize(this, m_Phases[(i + 1) % m_Phases.Length]);
             }
 
+            yield return null;
             CentralController.BeginCoroutine(m_Phases[0].DoPhase());
         }
 

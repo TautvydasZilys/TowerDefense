@@ -1,5 +1,6 @@
 ﻿using System;
 using TowerDefense.Behaviours;
+using TowerDefense.Behaviours.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ namespace TowerDefense.Controllers
         private Button m_StartGameButton;
 
         [SerializeField]
-        private BuildTowerButton[] m_BuildTowerButtons;
+        private BuildButton[] m_BuildButtons;
 
         [SerializeField]
         private Text m_WaveStartingText;
@@ -27,7 +28,7 @@ namespace TowerDefense.Controllers
 
         public static Canvas Canvas { get { return s_Instance.m_Canvas; } }
         public static Button StartGameButton { get { return s_Instance.m_StartGameButton; } }
-        public static BuildTowerButton[] BuildTowerButtons { get { return s_Instance.m_BuildTowerButtons; } }
+        public static BuildButton[] BuildButtons { get { return s_Instance.m_BuildButtons; } }
         public static Text WaveStartingText { get { return s_Instance.m_WaveStartingText; } }
         public static Text GameOverText { get { return s_Instance.m_GameOverText; } }
 

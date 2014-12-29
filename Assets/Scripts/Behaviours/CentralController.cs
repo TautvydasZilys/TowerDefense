@@ -28,7 +28,7 @@ namespace TowerDefense.Behaviours
             VariablesController.Initialize();
             UIController.Initialize();
 
-            GameplayController.Start();
+            StartCoroutine(GameplayController.Start());
         }
 
         private void Update()

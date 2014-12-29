@@ -147,6 +147,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &233010142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 233010143}
+  - 114: {fileID: 233010144}
+  m_Layer: 5
+  m_Name: BuildBasicTowerButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &233010143
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 233010142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1300804180}
+  m_RootOrder: 3
+--- !u!114 &233010144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 233010142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f19953024d67a143a8dc8ded9533e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DeactivatedButtonPrefab: {fileID: 11489838, guid: ba28f151100ae0a47aedca1ff7255a49,
+    type: 2}
+  m_ActivatedButtonPrefab: {fileID: 11489034, guid: b8a60906d6c86c94fb8b06c5ada2114a,
+    type: 2}
+  m_TowerPrefab: {fileID: 100000, guid: d45235e9dcfa40a4db92a8caa13f4552, type: 2}
 --- !u!1 &314690748
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,8 +538,8 @@ MonoBehaviour:
   UIController:
     m_Canvas: {fileID: 1300804183}
     m_StartGameButton: {fileID: 1890103630}
-    m_BuildTowerButtons:
-    - {fileID: 0}
+    m_BuildButtons:
+    - {fileID: 233010144}
     m_WaveStartingText: {fileID: 1672222124}
     m_GameOverText: {fileID: 663236032}
 --- !u!54 &1022591003
@@ -660,6 +704,7 @@ RectTransform:
   - {fileID: 1672222123}
   - {fileID: 663236031}
   - {fileID: 1890103629}
+  - {fileID: 233010143}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
@@ -721,78 +766,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1001 &1456231631
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 667.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 503
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_ActivatedButton
-      value: 
-      objectReference: {fileID: 11489034, guid: b8a60906d6c86c94fb8b06c5ada2114a,
-        type: 2}
-    - target: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_DeactivatedButton
-      value: 
-      objectReference: {fileID: 11489838, guid: ba28f151100ae0a47aedca1ff7255a49,
-        type: 2}
-    - target: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_Tower
-      value: 
-      objectReference: {fileID: 100000, guid: d45235e9dcfa40a4db92a8caa13f4552, type: 2}
-    - target: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_ActivatedButtonPrefab
-      value: 
-      objectReference: {fileID: 11489034, guid: b8a60906d6c86c94fb8b06c5ada2114a,
-        type: 2}
-    - target: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_DeactivatedButtonPrefab
-      value: 
-      objectReference: {fileID: 11489838, guid: ba28f151100ae0a47aedca1ff7255a49,
-        type: 2}
-    - target: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-      propertyPath: m_TowerPrefab
-      value: 
-      objectReference: {fileID: 100000, guid: d45235e9dcfa40a4db92a8caa13f4552, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-  m_RootGameObject: {fileID: 2044041849}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1575609125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,48 +1140,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890103628}
---- !u!1 &2044041849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 136468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-  m_PrefabInternal: {fileID: 1456231631}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2044041851}
-  - 114: {fileID: 2044041850}
-  m_Layer: 0
-  m_Name: BuildBasicTowerButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2044041850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11411706, guid: 72817bb1e90ade04a8bf66b18e3c3513,
-    type: 2}
-  m_PrefabInternal: {fileID: 1456231631}
-  m_GameObject: {fileID: 2044041849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c26b67a44e598db4eb38eb2e33b5557e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DeactivatedButtonPrefab: {fileID: 11489838, guid: ba28f151100ae0a47aedca1ff7255a49,
-    type: 2}
-  m_ActivatedButtonPrefab: {fileID: 11489034, guid: b8a60906d6c86c94fb8b06c5ada2114a,
-    type: 2}
-  m_TowerPrefab: {fileID: 100000, guid: d45235e9dcfa40a4db92a8caa13f4552, type: 2}
---- !u!4 &2044041851
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 436468, guid: 72817bb1e90ade04a8bf66b18e3c3513, type: 2}
-  m_PrefabInternal: {fileID: 1456231631}
-  m_GameObject: {fileID: 2044041849}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 667.5, y: 503, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8

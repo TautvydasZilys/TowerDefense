@@ -13,6 +13,9 @@ namespace TowerDefense.GamePhases
             m_StartGameButton = UIController.StartGameButton;
             m_StartGameButton.onClick.AddListener(FinishPhase);
             m_StartGameButton.gameObject.SetActive(true);
+            
+            foreach (var button in UIController.BuildButtons)
+                button.Activate();
 
             yield break;
         }
@@ -22,6 +25,9 @@ namespace TowerDefense.GamePhases
             m_StartGameButton.gameObject.SetActive(false);
             m_StartGameButton.onClick.RemoveListener(FinishPhase);
             m_StartGameButton = null;
+
+            foreach (var button in UIController.BuildButtons)
+                button.Deactivate();
 
             base.FinishPhase();
         }
