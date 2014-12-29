@@ -72,7 +72,10 @@ namespace TowerDefense.Behaviours
             if (!m_JustStarted && Input.GetMouseButtonUp(0))
             {
                 BuildTower();
-                StopBuilding();
+
+                if (!Input.GetButton("Shift"))
+                    StopBuilding();
+
                 return;
             }
 
